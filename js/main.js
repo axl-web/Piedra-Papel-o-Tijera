@@ -4,20 +4,20 @@ function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function eleccion(opcion, player) {
+function eleccion(opcion) {
+  let resultado = " ";
   if (opcion == 1) {
-    alert(player + " Elijio 🪨");
+    resultado = " Elije 🪨";
   } else if (opcion == 2) {
-    alert(player + " Elijio 📄");
+    resultado = " Elije 📄";
   } else if (opcion == 3) {
-    alert(player + " Elijio ✂️");
+    resultado = " Elije ✂️";
   } else {
-    alert(
-      "No ingresaste una opcion correcta." +
-        "\n Presiona F5 para volver a jugar"
-    );
+    resultado =
+      "No ingreso una opcion correcta." + "\n Presiona F5 para volver a jugar";
     jugable = false;
   }
+  return resultado;
 }
 
 function combate(playerH, playerPC) {
@@ -36,7 +36,7 @@ function combate(playerH, playerPC) {
 
 function play(ok) {
   if (ok) {
-    eleccion(pc, "PC");
+    alert("La PC " + eleccion(pc));
     combate(jugador, pc);
   }
 }
@@ -49,5 +49,5 @@ jugador = prompt(
   "Elije una opcion" + "\n1. Piedra 🪨" + "\n2. Papel  📄" + "\n3. Tijera ✂️"
 );
 
-eleccion(jugador, "Jugador");
+alert("El Jugador " + eleccion(jugador));
 play(jugable);
