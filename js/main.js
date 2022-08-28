@@ -3,15 +3,15 @@
 let jugador = 0;
 let min = 1;
 let max = 3;
-let ia = aleatorio(1, 3);
+let pc = aleatorio(1, 3);
 
 jugador = prompt(
   "Elije una opcion" + "\n1. Piedra 🪨" + "\n2. Papel  📄" + "\n3. Tijera ✂️"
 );
 
 eleccion(jugador, "Jugador");
-eleccion(ia, "PC");
-combate(jugador, ia);
+eleccion(pc, "PC");
+combate(jugador, pc);
 
 function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -32,14 +32,14 @@ function eleccion(opcion, player) {
   }
 }
 
-function combate(player, pc) {
-  if (player == pc) {
+function combate(playerH, playerPC) {
+  if (playerH == playerPC) {
     alert("EMPATE" + "\n Presiona F5 para volver a jugar");
-  } else if (player == 1 && pc == 3) {
+  } else if (playerH == 1 && playerPC == 3) {
     alert("TU GANAS" + "\n Presiona F5 para volver a jugar");
-  } else if (player == 2 && pc == 1) {
+  } else if (playerH == 2 && playerPC == 1) {
     alert("TU GANAS" + "\n Presiona F5 para volver a jugar");
-  } else if (player == 3 && pc == 2) {
+  } else if (playerH == 3 && playerPC == 2) {
     alert("TU GANAS" + "\n Presiona F5 para volver a jugar");
   } else {
     alert("TU PIERDES" + "\n Presiona F5 para volver a jugar");
