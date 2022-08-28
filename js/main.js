@@ -1,16 +1,5 @@
 //1 es piedra, 2 es papel y 3 es tijera
 
-let jugador = 0;
-let pc = aleatorio(1, 3);
-let jugable = true;
-
-jugador = prompt(
-  "Elije una opcion" + "\n1. Piedra 🪨" + "\n2. Papel  📄" + "\n3. Tijera ✂️"
-);
-
-eleccion(jugador, "Jugador");
-play(jugable);
-
 function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -51,3 +40,14 @@ function play(ok) {
     combate(jugador, pc);
   }
 }
+
+let jugador = 0;
+let pc = aleatorio(1, 3);
+let jugable = true;
+
+jugador = prompt(
+  "Elije una opcion" + "\n1. Piedra 🪨" + "\n2. Papel  📄" + "\n3. Tijera ✂️"
+);
+
+eleccion(jugador, "Jugador");
+play(jugable);
