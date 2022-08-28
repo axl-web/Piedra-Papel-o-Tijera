@@ -1,15 +1,21 @@
 //1 es piedra, 2 es papel y 3 es tijera
 
 let jugador = 0;
-let ia = Math.floor(Math.random() * 3) + 1;
+let min = 1;
+let max = 3;
+let ia = aleatorio(1, 3);
 
 jugador = prompt(
-  "Elije una opcion" + "\n1. Piedra 🪨" + "\n2. Papel  📄" + "\n3. Tijera  ✂️"
+  "Elije una opcion" + "\n1. Piedra 🪨" + "\n2. Papel  📄" + "\n3. Tijera ✂️"
 );
 
 eleccion(jugador, "Jugador");
 eleccion(ia, "PC");
 combate(jugador, ia);
+
+function aleatorio(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 function eleccion(opcion, player) {
   if (opcion == 1) {
