@@ -1,5 +1,3 @@
-//1 es piedra, 2 es papel y 3 es tijera
-
 function aleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -13,41 +11,43 @@ function eleccion(opcion) {
   } else if (opcion == 3) {
     resultado = " Elije ✂️";
   } else {
-    resultado =
-      "No ingreso una opcion correcta." + "\n Presiona F5 para volver a jugar";
-    jugable = false;
+    resultado = "No ingreso una opcion correcta.";
+    alert(
+      "No ingresaste un opcion correcta \n Preciona F5 para vovler a jugar"
+    );
   }
   return resultado;
 }
 
 function combate(playerH, playerPC) {
   if (playerH == playerPC) {
-    alert("EMPATE" + "\n Presiona F5 para volver a jugar");
+    alert("EMPATE");
   } else if (
     (playerH == 1 && playerPC == 3) ||
     (playerH == 2 && playerPC == 1) ||
     (playerH == 3 && playerPC == 2)
   ) {
-    alert("TU GANAS" + "\n Presiona F5 para volver a jugar");
+    alert("TU GANAS");
+    rodasGanadas = rodasGanadas + 1;
   } else {
-    alert("TU PIERDES" + "\n Presiona F5 para volver a jugar");
-  }
-}
-
-function play(ok) {
-  if (ok) {
-    alert("La PC " + eleccion(pc));
-    combate(jugador, pc);
+    alert("TU PIERDES");
+    rondasPerdidas = rondasPerdidas + 1;
   }
 }
 
 let jugador = 0;
-let pc = aleatorio(1, 3);
-let jugable = true;
+let pc = 0;
+let rodasGanadas = 0;
+let rondasPerdidas = 0;
 
-jugador = prompt(
-  "Elije una opcion" + "\n1. Piedra 🪨" + "\n2. Papel  📄" + "\n3. Tijera ✂️"
-);
+while (rodasGanadas < 3 && rondasPerdidas < 3) {
+  jugador = prompt(
+    "Elije una opcion" + "\n1. Piedra 🪨" + "\n2. Papel  📄" + "\n3. Tijera ✂️"
+  );
+  pc = aleatorio(1, 3);
+  alert("El Jugador " + eleccion(jugador));
+  alert("La PC " + eleccion(pc));
+  combate(jugador, pc);
+}
 
-alert("El Jugador " + eleccion(jugador));
-play(jugable);
+alert("Ganaste " + rodasGanadas + "\n Perdistes " + rondasPerdidas);
